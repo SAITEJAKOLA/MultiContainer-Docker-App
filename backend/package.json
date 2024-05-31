@@ -65,7 +65,7 @@
     "vary": "^1.1.2"
   },
   "scripts": {
-    "start": "nodemon ./src/index"
+    "start": "nodemon -L ./src/index"
   },
   "keywords": [],
   "author": "",
