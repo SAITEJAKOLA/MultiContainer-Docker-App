@@ -57,7 +57,7 @@ docker build -t todoapp .
 //running frontend/backend/db //using named volumes //binding ///port mapping
 docker run --name mongodb --rm --network todo-net -v data:/data/db mongo
 docker run --name todoapp-UI -it --rm -p 3000:3000 -d -v C:\Users\saite\source\MultiContainer-Docker-App\frontend\src:/app/src todoapp-frontend
-docker run --name todoapp-backend --network todo-net -p 8000:8000 -v C:\Users\saite\source\MultiContainer-Docker-App\backend\src:/app/src todoapp
+docker run --name todoapp-backend --rm -p 8000:8000 --network todo-net -v C:\Users\saite\source\MultiContainer-Docker-App\backend\src:/app/src todoapp
 
 //Docker Networks
 To check the network list
