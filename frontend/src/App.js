@@ -56,7 +56,7 @@ function App() {
 
   return (
     <div className="todoapp stack-large">
-      <h1>What to be Todo</h1>
+      <h1>What to Todo</h1>
       <form>
         <h2 className="label-wrapper">
           <label htmlFor="new-todo-input" className="label__lg">

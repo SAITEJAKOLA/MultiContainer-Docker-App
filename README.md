@@ -65,3 +65,7 @@ docker network ls
 
 To create a docker network
 docker network create <network-name>
+
+//Docker compose.yml
+docker-compose up - compiles and runs the docker compose.yml file
+docker-compse down - removes all the containers from the docker hub.

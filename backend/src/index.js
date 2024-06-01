@@ -45,10 +45,10 @@ app.delete('/todos/:id', async (req, res) => {
 });
 
 mongoose.connect(
-  'mongodb://mongodb:27017/todos-app',
+  `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@mongodb:27017/todos-app?authSource=admin`,
   //host.docker.internal is used to fetch the host machine's IP address on
   // we can directly fetch the mongodb container IP address and
-  //Usind Docker Networks We can directly connect the two containers (mongodb://mongo:27017/todos-app)
+  //Using Docker Networks We can directly connect the two containers (mongodb://mongo:27017/todos-app)
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,

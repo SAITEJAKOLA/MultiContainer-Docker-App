@@ -1,0 +1,42 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo
+    volumes:
+      - mongodb_data:/data/db
+    env_file:
+      - ./env/mongo.env
+    container_name: mongodb
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+    volumes:
+      - ./backend/src:/app/src
+    env_file:
+      - ./env/backend.env
+    depends_on:
+      - mongodb
+    container_name: todoapp-backend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend/src:/app/src
+      - /app/node_modules
+    depends_on:
+      - backend
+    container_name: todoapp-frontend
+    environment:
+      - WATCHPACK_POLLING=true
+      # Helps listening to react app changes
+    stdin_open: true
+    tty: true
+volumes:
+  mongodb_data:
